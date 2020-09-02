@@ -11,6 +11,7 @@
 namespace Spring\TouTiao;
 
 use Spring\TouTiao\Kernel\ServiceContainer;
+use Spring\TouTiao\Server\ServiceProvider;
 
 /**
  * Class Application.
@@ -19,6 +20,7 @@ use Spring\TouTiao\Kernel\ServiceContainer;
  * @property \Spring\TouTiao\Auth\Client $auth
  * @property \Spring\TouTiao\QRCode\Client $qrcode
  * @property \Spring\TouTiao\Message\Client $message
+ * @property \Spring\TouTiao\Encryptor $encryptor
  */
 class Application extends ServiceContainer
 {
@@ -26,6 +28,7 @@ class Application extends ServiceContainer
      * @var array
      */
     protected $providers = [
+        Server\ServiceProvider::class,
         AccessToken\ServiceProvider::class,
         Auth\ServiceProvider::class,
         QRCode\ServiceProvider::class,
